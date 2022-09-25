@@ -28,7 +28,8 @@ public class Spawner : MonoBehaviour
         if( _currentCounter <= 0)
         {
             var newBall = Instantiate(Prefab, _transform.position, Quaternion.identity);
-
+            var script = newBall.GetComponent<Ball>();
+            script.speed = Speed;
             var rigidBody = newBall.GetComponent<Rigidbody>();
             rigidBody.AddForce(transform.right * Speed);
             _currentCounter = Counter;
